@@ -1,6 +1,3 @@
-//var screen=document.getElementById("back")
-//var myInput=document.getElementById("myInput");
-//var hisInput=document.getElementById("hisInput");
 function submitMy(){
     if(document.getElementById("myInput").value!==""){
         let message=document.createElement("p");
@@ -9,6 +6,8 @@ function submitMy(){
         document.getElementById("myInput").value='';
         message.appendChild(text);
         document.getElementById("back").appendChild(message);
+        let screen = document.getElementById("back");
+        screen.scrollTop = screen.scrollHeight;
     }
 }
 function submitHis() {
@@ -19,6 +18,8 @@ function submitHis() {
         document.getElementById("hisInput").value='';
         message.appendChild(text);
         document.getElementById("back").appendChild(message);
+        let screen = document.getElementById("back");
+        screen.scrollTop = screen.scrollHeight;
     }
 }
 function send(message){

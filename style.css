@@ -3,7 +3,6 @@
     height: 550px;
     width: 100%;
     overflow: auto;
-
 }
 .send{
     height: 70px;
@@ -11,7 +10,6 @@
     vertical-align: top;
     horiz-align: right;
     font-size: 24px;
-    scroll-behavior: auto;
     white-space: pre;
 
 
