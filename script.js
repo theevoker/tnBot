@@ -11,11 +11,11 @@ function ask(){
     send(pasuk);
 }
 function correct(book){
-    send('נכון מאוד! הפסוק נמצא בספר ' + book);
+    send('נכון מאוד! הפסוק נמצא בספר ' + book + '!');
     ask();
 }
 function incorrect(text){
-    send('לא נכון. הפסוק לא נמצא בספר ' + text)
+    send('לא נכון. הפסוק לא נמצא בספר ' + text + '.')
 }
 function check(text){
     if(!start){
