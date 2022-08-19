@@ -39,26 +39,26 @@
     float: left;
     clear: both;
     background: RGB(170, 255, 170);
-    margin-top: 5px;
-    padding: 5px;
+    margin-top: 3px;
+    margin-bottom: 0;
+    padding: 3px 15px;
     margin-left: 10px;
-    min-height: 25px;
-    min-width: 200px;
-    max-width: 70%;
+    min-width: 50px;
+    max-width: 60%;
     text-align: right;
-    -webkit-border-radius: 5px;
+    -webkit-border-radius: 0 10px 10px 10px;
 }
 .hisMessage{
     display: inline-block;
     float: right;
     clear: both;
     background: RGB(255, 255, 255);
-    margin-top: 1px;
-    padding: 5px;
+    margin-top: 3px;
+    margin-bottom: 0;
+    padding: 3px 15px;
     margin-right: 10px;
-    min-height: 25px;
-    min-width: 200px;
-    max-width: 70%;
+    min-width: 50px;
+    max-width: 60%;
     text-align: right;
-    -webkit-border-radius: 5px;
+    -webkit-border-radius: 10px 0 10px 10px;
 }
