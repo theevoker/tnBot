@@ -10,6 +10,11 @@ function ask(){
     pasuk=randomChoice(PSUKIM_BAHOMER[book].split(":"));
     send(pasuk);
 }
+document.addEventListener('keypress', (event)=>{
+    if(event.key === 'Enter'||event.key === 'Return') {
+        submitMy();
+    }
+});
 function correct(book){
     send('נכון מאוד! הפסוק נמצא בספר ' + book + '!');
     ask();
@@ -48,18 +53,18 @@ function submitMy(){
         check(txt);
     }
 }
-function submitHis() {
-    if (document.getElementById("hisInput").value !== "") {
-        let message = document.createElement("p");
-        message.setAttribute("class", "hisMessage")
-        let text = document.createTextNode(document.getElementById("hisInput").value);
-        document.getElementById("hisInput").value='';
-        message.appendChild(text);
-        document.getElementById("back").appendChild(message);
-        let screen = document.getElementById("back");
-        screen.scrollTop = screen.scrollHeight;
-    }
-}
+// function submitHis() {
+//     if (document.getElementById("hisInput").value !== "") {
+//         let message = document.createElement("p");
+//         message.setAttribute("class", "hisMessage")
+//         let text = document.createTextNode(document.getElementById("hisInput").value);
+//         document.getElementById("hisInput").value='';
+//         message.appendChild(text);
+//         document.getElementById("back").appendChild(message);
+//         let screen = document.getElementById("back");
+//         screen.scrollTop = screen.scrollHeight;
+//     }
+// }
 function send(message){
     let messa = document.createElement("p");
     messa.setAttribute("class", "hisMessage");
