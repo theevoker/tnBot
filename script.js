@@ -20,7 +20,12 @@ function correct(book){
     ask();
 }
 function incorrect(text){
-    send('לא נכון. הפסוק לא נמצא בספר ' + text + '.')
+    if(text in Object.keys(PSUKIM_BAHOMER)) {
+        send('לא נכון. הפסוק לא נמצא בספר ' + text + '.');
+    }
+    else{
+        send(text + 'אינו ספר בתנ"ך (אם זה בכל זאת ספר, יש לנסות איות אחר).')
+    }
 }
 function check(text){
     if(!start){
@@ -53,18 +58,6 @@ function submitMy(){
         check(txt);
     }
 }
-// function submitHis() {
-//     if (document.getElementById("hisInput").value !== "") {
-//         let message = document.createElement("p");
-//         message.setAttribute("class", "hisMessage")
-//         let text = document.createTextNode(document.getElementById("hisInput").value);
-//         document.getElementById("hisInput").value='';
-//         message.appendChild(text);
-//         document.getElementById("back").appendChild(message);
-//         let screen = document.getElementById("back");
-//         screen.scrollTop = screen.scrollHeight;
-//     }
-// }
 function send(message){
     let messa = document.createElement("p");
     messa.setAttribute("class", "hisMessage");
