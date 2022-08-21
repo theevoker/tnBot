@@ -1,11 +1,11 @@
 #back{
     background: url("פרצופים.png");
-    height: 550px;
+    height: 87vh;
     width: 100%;
     overflow: auto;
 }
 .send{
-    height: 70px;
+    height: 10vh;
     width: 89%;
     vertical-align: top;
     horiz-align: right;
@@ -15,7 +15,7 @@
 
 }
 .submit{
-    height: 70px;
+    height: 10vh;
     width: 10%;
 }
 #myInput{
