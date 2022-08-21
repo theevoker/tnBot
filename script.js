@@ -1,10 +1,11 @@
 function randomChoice(arr) {
     return arr[Math.floor(arr.length * Math.random())];
 }
+let keys = Object.keys(PSUKIM_BAHOMER);
 let start = false;
-let book = 'בראשית'
-let ans = true
-let pasuk = ''
+let book = 'בראשית';
+let ans = true;
+let pasuk = '';
 function ask(){
     book = randomChoice(Object.keys(PSUKIM_BAHOMER));
     pasuk=randomChoice(PSUKIM_BAHOMER[book].split(":"));
@@ -20,12 +21,13 @@ function correct(book){
     ask();
 }
 function incorrect(text){
-    if(text in Object.keys(PSUKIM_BAHOMER)) {
-        send('לא נכון. הפסוק לא נמצא בספר ' + text + '.');
+    for(let i=0; i<keys.length; i++) {
+        if (keys[i] === text) {
+            send('לא נכון. הפסוק לא נמצא בספר ' + text + '.');
+            return;
+        }
     }
-    else{
-        send(text + 'אינו ספר בתנ"ך (אם זה בכל זאת ספר, יש לנסות איות אחר).')
-    }
+    send(text + ' אינו ספר בתנ"ך (אם זה בכל זאת ספר, יש לנסות איות אחר).');
 }
 function check(text){
     if(!start){
@@ -46,7 +48,7 @@ function check(text){
 
 function submitMy(){
     if(document.getElementById("myInput").value!==""){
-        var txt = document.getElementById("myInput").value
+        let txt = document.getElementById("myInput").value
         let message=document.createElement("p");
         message.setAttribute("class", "myMessage");
         let text=document.createTextNode(txt);
