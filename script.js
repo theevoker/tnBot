@@ -23,7 +23,7 @@ function correct(book){
 function incorrect(text){
     for(let i=0; i<keys.length; i++) {
         if (keys[i].replace('ו','').replace('י','')  === text.replace('ו','').replace('י','')) {
-            send('לא נכון. הפסוק לא נמצא בספר ' + keys[i] + '.');
+            send('לא נכון. הפסוק לא נמצא בספר ' + text + '.');
             return;
         }
     }
