@@ -30,6 +30,7 @@ function incorrect(text){
     send(text + ' אינו ספר בתנ"ך (אם זה בכל זאת ספר, יש לנסות איות אחר).');
 }
 function check(text){
+    text = text.trim()
     if(!start){
         start=true;
         ask();
