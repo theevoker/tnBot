@@ -39,6 +39,10 @@ function check(text){
     else{
         ans = book.replace('ו','').replace('י','') === text.replace('ו','').replace('י','') ;
     }
+    if (text==='דלג'){
+        ask();
+        return;
+    }
     if(ans){
         correct(book);
     }
