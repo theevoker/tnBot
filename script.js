@@ -6,10 +6,15 @@ let start = false;
 let book = 'בראשית';
 let ans = true;
 let pasuk = '';
+let pasuks_num = 0;
+let mid_grade = 0;
+let tries = 0;
 function ask(){
     book = randomChoice(Object.keys(PSUKIM_BAHOMER));
     pasuk=randomChoice(PSUKIM_BAHOMER[book].split(":"));
     send(pasuk);
+    pasuks_num+=1;
+    tries = 1;
 }
 document.addEventListener('keypress', (event)=>{
     if(event.key === 'Enter'||event.key === 'Return') {
@@ -18,9 +23,13 @@ document.addEventListener('keypress', (event)=>{
 });
 function correct(book){
     send('נכון מאוד! הפסוק נמצא בספר ' + book + '!');
+    mid_grade += 1/tries;
+    send_grade();
     ask();
+
 }
 function incorrect(text){
+    tries +=1;
     for(let i=0; i<keys.length; i++) {
         if (keys[i].slice(1).replaceAll('ו','').replaceAll('י','') === text.slice(1).replaceAll('ו','').replaceAll('י','') && text.charAt(0)===keys[i].charAt(0)) {
             send('לא נכון. הפסוק לא נמצא בספר ' + keys[i] + '.');
@@ -44,6 +53,9 @@ function help() {
     send('לרשימת ספרי התנ"ך - שלח "ספרים"');
     send('לשליחת הודעות אלה שוב- שלח "עזרה"');
 
+}
+function send_grade(){
+    send('ציונך כעת ' + mid_grade*100/pasuks_num + '.')
 }
 function check(text){
     text = text.trim()
