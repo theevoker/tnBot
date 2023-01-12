@@ -22,8 +22,8 @@ function correct(book){
 }
 function incorrect(text){
     for(let i=0; i<keys.length; i++) {
-        if (keys[i].replace('ו','').replace('י','')  === text.replace('ו','').replace('י','')) {
-            send('לא נכון. הפסוק לא נמצא בספר ' + text + '.');
+        if (keys[i].slice(1).replaceAll('ו','').replaceAll('י','') === text.slice(1).replaceAll('ו','').replaceAll('י','') && text.charAt(0)===keys[i].charAt(0)) {
+            send('לא נכון. הפסוק לא נמצא בספר ' + keys[i] + '.');
             return;
         }
     }
@@ -46,7 +46,7 @@ function check(text){
         return;
     }
     else{
-        ans = book.replace('ו','').replace('י','') === text.replace('ו','').replace('י','') ;
+        ans = book.slice(1).replaceAll('ו','').replaceAll('י','') === text.slice(1).replaceAll('ו','').replaceAll('י','') && text.charAt(0)===book.charAt(0);
     }
     if (text==='דלג'){
         ask();
