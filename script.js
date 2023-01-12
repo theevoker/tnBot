@@ -49,6 +49,7 @@ function check(text){
         ans = book.slice(1).replaceAll('ו','').replaceAll('י','') === text.slice(1).replaceAll('ו','').replaceAll('י','') && text.charAt(0)===book.charAt(0);
     }
     if (text==='דלג'){
+        send('הפסוק נמצא בספר ' + book + '.');
         ask();
         return;
     }
