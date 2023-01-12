@@ -55,7 +55,8 @@ function help() {
 
 }
 function send_grade(){
-    send('ציונך כעת ' + mid_grade*100/pasuks_num + '.')
+    send('ציונך כעת ' + Math.floor(mid_grade*10000/pasuks_num)/100 + '.')
+//    send('ציונך כעת ' + mid_grade*100/pasuks_num + '.')
 }
 function check(text){
     text = text.trim()
