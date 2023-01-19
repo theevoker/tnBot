@@ -23,7 +23,7 @@ document.addEventListener('keypress', (event)=>{
 });
 function correct(book){
     send('נכון מאוד! הפסוק נמצא בספר ' + book + '!');
-    mid_grade += 1/tries;
+    mid_grade += Math.min(0.5+1/tries,1);
     send_grade();
     ask();
 
