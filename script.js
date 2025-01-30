@@ -9,6 +9,8 @@ let pasuk = '';
 let pasuks_num = 0;
 let mid_grade = 0;
 let tries = 0;
+let distance = 30;
+let book_array = {}
 function ask(){
     book = randomChoice(Object.keys(PSUKIM_BAHOMER));
     pasuk=randomChoice(PSUKIM_BAHOMER[book].split(":"));
