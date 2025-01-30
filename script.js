@@ -10,7 +10,6 @@ let pasuks_num = 0;
 let mid_grade = 0;
 let tries = 0;
 let distance = 30;
-let book_array = {}
 function ask(){
     book = randomChoice(Object.keys(PSUKIM_BAHOMER));
     pasuk=randomChoice(PSUKIM_BAHOMER[book].split(":"));
@@ -30,11 +29,34 @@ function correct(book){
     ask();
 
 }
+funciton check_distance(text){
+    let num1 = 0;
+    let num2 = 0;
+    for(let i = 0;i<keys.length;i++){
+        if (keys[i].slice(1).replaceAll('ו','').replaceAll('י','') === text.slice(1).replaceAll('ו','').replaceAll('י','') && text.charAt(0)===keys[i].charAt(0)) {
+            num1 = i
+        }
+    }for(let i = 0;i<keys.length;i++){
+        if (keys[i].slice(1).replaceAll('ו','').replaceAll('י','') === book.slice(1).replaceAll('ו','').replaceAll('י','') && text.charAt(0)===keys[i].charAt(0)) {
+            num2 = i
+        }
+    }
+    return abs(num1 - num2)
+}
 function incorrect(text){
     tries +=1;
     for(let i=0; i<keys.length; i++) {
         if (keys[i].slice(1).replaceAll('ו','').replaceAll('י','') === text.slice(1).replaceAll('ו','').replaceAll('י','') && text.charAt(0)===keys[i].charAt(0)) {
             send('לא נכון. הפסוק לא נמצא בספר ' + keys[i] + '.');
+            if (distance > check_distance(text)){
+                send('...מתקרר')
+            }
+            else if (distance == check_distance(text)){
+                send(".נשאר")
+            }
+            else{
+                send("!מתחמם")
+            }
             return;
         }
     }
